@@ -12,7 +12,7 @@ type RestError struct {
 	Causes  []interface{} `json:"causes"`
 }
 
-func NewError(msg string) error {
+func NewRestError(msg string, status int, err string, causes []interface{}) error {
 	return errors.New(msg)
 }
 
