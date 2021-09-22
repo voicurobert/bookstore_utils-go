@@ -14,6 +14,10 @@ type logger struct {
 	log *zap.Logger
 }
 
+type bookstoreLogger interface {
+	Printf(string, ...interface{})
+}
+
 func init() {
 	logConfig := zap.Config{
 		OutputPaths: []string{"stdout"},
@@ -36,7 +40,7 @@ func init() {
 	}
 }
 
-func GetLogger() logger {
+func GetLogger() bookstoreLogger {
 	return log
 }
 
